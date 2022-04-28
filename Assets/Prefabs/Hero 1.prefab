@@ -211,3 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  turnSpeed: 10
+  fireRate: 1
+  bulletPrefab: {fileID: 7605056815542463685, guid: 2b845d41db375334c87862a0a264d7e1, type: 3}
+  firePoint: {fileID: 3080287736626995085}

@@ -415,12 +415,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4294031164430356301, guid: c4f7a76a60a404fa0b95d12bcd897c1b, type: 3}
       propertyPath: waveConfigs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4294031164430356301, guid: c4f7a76a60a404fa0b95d12bcd897c1b, type: 3}
       propertyPath: waveConfigs.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 17374912e6fef4848b57228bf11dcbce, type: 2}
+      objectReference: {fileID: 11400000, guid: 673f93d6f27954deba49f75a83d11bce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4f7a76a60a404fa0b95d12bcd897c1b, type: 3}
 --- !u!1001 &8281728889888592210

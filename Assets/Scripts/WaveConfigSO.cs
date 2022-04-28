@@ -14,7 +14,7 @@ public class WaveConfigSO : ScriptableObject
 
     public int GetEnemyCount()
     {
-        return enemyPrefabs.Count;
+        return enemyPrefabs.Count; 
     }
     
     public Transform GetStartingWaypoint()

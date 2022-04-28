@@ -25,6 +25,8 @@ public class Health : MonoBehaviour
     {
         DamageDealer damageDealer = col.GetComponent<DamageDealer>();
         
+        Debug.Log(col.name);
+        
         if (damageDealer != null)
         {
             TakeDamage(damageDealer.GetDamage());
@@ -41,6 +43,8 @@ public class Health : MonoBehaviour
         
         if (health <= 0)
         {
+            // TODO: Ana kontroller'da altın sayısını arttır
+            
             _isAlive = false;
             Destroy(gameObject);
         }
@@ -50,7 +54,7 @@ public class Health : MonoBehaviour
     {
         while (_isAlive)
         {
-            TakeDamage(7);
+            TakeDamage(10);
 
             yield return new WaitForSeconds(1f);
         }

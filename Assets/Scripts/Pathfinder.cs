@@ -23,6 +23,8 @@ public class Pathfinder : MonoBehaviour
         _waveConfig = _enemySpawner.GetCurrentWave();
         _waypoints = _waveConfig.GetWaypoints();
         transform.position = _waypoints[_waypointIndex].position; 
+        
+        SetRotation(0f);
     }
 
     // Update is called once per frame
@@ -40,14 +42,7 @@ public class Pathfinder : MonoBehaviour
             var delta = _waveConfig.GetMoveSpeed() * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, delta);
             
-            // Sonraki hedefe doğru dönme
-            Vector3 targetDirection = targetPosition - transform.position;
-            Debug.Log("targetDirection : " + targetDirection);
-            Vector3 newDirection =
-                Vector3.RotateTowards(transform.forward, targetDirection, rotateSpeed * Time.deltaTime, 0.0f);
-            Debug.DrawRay(transform.position, newDirection, Color.red);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-            
+           SetRotation(rotateSpeed);
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
             {
@@ -58,5 +53,15 @@ public class Pathfinder : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    // Sonraki hedefe doğru dönme
+    private void SetRotation(float speed)
+    {
+        Vector3 targetDirection = _waypoints[_waypointIndex].position - transform.position;
+        Vector3 newDirection =
+            Vector3.RotateTowards(transform.forward, targetDirection, speed * Time.deltaTime, 0.0f);
+        Debug.DrawRay(transform.position, newDirection, Color.red);
+        transform.rotation = Quaternion.LookRotation(newDirection);
     }
 }

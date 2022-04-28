@@ -9,6 +9,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
     [SerializeField] private float baseFiringRate = 0.2f;
+    [SerializeField] private float range = 15f;
+    [SerializeField] private float turnSpeed = 10f;
     
     [Header("AI")]
     [SerializeField] private bool useAI;
@@ -18,7 +20,8 @@ public class Shooter : MonoBehaviour
     [HideInInspector] public bool isFiring;
 
     private Coroutine _firingCoroutine;
-    
+    private Transform _target;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,9 +39,9 @@ public class Shooter : MonoBehaviour
 
     private void Fire()
     {
-        Debug.Log("isFiring : " + isFiring);
         if (isFiring && _firingCoroutine == null)
         {
+            Debug.Log("aaa");
             _firingCoroutine = StartCoroutine(FireContinuously());
         }
         else if (!isFiring && _firingCoroutine != null)
@@ -47,16 +50,55 @@ public class Shooter : MonoBehaviour
             _firingCoroutine = null;
         }
     }
+    
+    private void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+
+        foreach(GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if(distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            _target = nearestEnemy.transform;
+        }
+        else
+        {
+            _target = null;
+        }
+
+    }
 
     private IEnumerator FireContinuously()
     {
-        while (true)
+        UpdateTarget();
+        
+        while (_target)
         {
+            // HEDEFE KILITLENME (TARGET LOCK ON)
+            Vector3 dir = _target.position - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
+            transform.rotation = Quaternion.Euler(0f,rotation.y, 0f);
+            
             var instance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-            var rb = instance.GetComponent<Rigidbody2D>();
+            Debug.Log("bbb");
+            
+            var rb = instance.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                Debug.Log("ccc");
                 rb.velocity = transform.up * projectileSpeed;
             }
 
