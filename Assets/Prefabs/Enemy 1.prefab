@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9164940825086229780}
   - component: {fileID: 361891475332678392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3881707737450825586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8293609921243088014}
   - component: {fileID: 5015471048360026651}
   - component: {fileID: 6881068782884943116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7130720422958906294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 5904468075593239992}
   - component: {fileID: 6939689529020077585}
   - component: {fileID: 1875817938904568782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 5164534857165566617}
   - component: {fileID: 2061958279412623449}
   - component: {fileID: 5004428962636927661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,9 +433,9 @@ GameObject:
   - component: {fileID: 931560645}
   - component: {fileID: 931560646}
   - component: {fileID: 931560647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
