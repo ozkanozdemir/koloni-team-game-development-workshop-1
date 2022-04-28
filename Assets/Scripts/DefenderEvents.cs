@@ -53,7 +53,7 @@ public class DefenderEvents : MonoBehaviour
         if (target == null)
             return;
 
-        // HEDEFE K?L?TLENME (TARGET LOCK ON)
+        // HEDEFE KILITLENME (TARGET LOCK ON)
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
@@ -71,11 +71,11 @@ public class DefenderEvents : MonoBehaviour
     }
     void Shoot()
     {
-        // KUR?UNDAK? METHODLARA ER??EB?LMEK ?Ç?N KULLANILAN TANIMLAMA
+        // KUR?UNDAK? METHODLARA ERISEBILMEK ICIN KULLANILAN TANIMLAMA
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        //KUR?UNUN YÖNÜNÜ BEL?RTMEK ?Ç?N BU SCR?PT'DE BULUNAN TARGET'DAN YARARLANDIK
+        //KUR?UNUN YÖNÜNÜ BELIRTMEK ICIN BU SCRIPT'DE BULUNAN TARGET'DAN YARARLANDIK
         if (bullet != null)
             bullet.Seek(target);
 
