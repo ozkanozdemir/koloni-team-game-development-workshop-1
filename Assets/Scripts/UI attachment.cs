@@ -20,6 +20,7 @@ public class UIatechment : MonoBehaviour
     public Button _CharacterNazyanno;
     public Button _TimeDelay;
     public Button _Chaos;
+    
     void Start()
     {
         
@@ -40,17 +41,17 @@ public class UIatechment : MonoBehaviour
     {
         Level++;
     }
-    public void GetCoinIncreases()
+    public void GetCoinIncreases(float value)
     {
-        Coin += 5;//This is Exmample value
+        Coin += value;//This is Exmample value
     }
-    public void GetCoinDecreases()
+    public void GetCoinDecreases(float value)
     {
-        Coin -= 5;//This is Exmample value
+        Coin -= value;//This is Exmample value
     }
-    public void GetExpIncreases()
+    public void GetExpIncreases(float value)
     {
-        Coin += 5;//This is Exmample value
+        Exp += value;//This is Exmample value
     }
 
     //public void GetUpgradeIncreases()

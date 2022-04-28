@@ -44,14 +44,14 @@ public class Health : MonoBehaviour
         
         if (health <= 0)
         {
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
             // TODO: Ana kontroller'da altın sayısını arttır
             
-=======
-            uIatechment.GetExpIncreases();
-            uIatechment.GetCoinIncreases();
+//=======
+            //uIatechment.GetExpIncreases();
+            //uIatechment.GetCoinIncreases();
             //d��man�n cinsine g�re para kazanma
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
             _isAlive = false;
             Destroy(gameObject);
         }
