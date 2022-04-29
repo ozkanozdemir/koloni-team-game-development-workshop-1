@@ -21,12 +21,5 @@ public class UI_ManagerSript : MonoBehaviour
     {
         
     }
-    public void ButtonUp()
-    {
-        Debug.Log("+");
-    }
-    public void ButtonDown()
-    {
-        Debug.Log("-");
-    }
+    
 }

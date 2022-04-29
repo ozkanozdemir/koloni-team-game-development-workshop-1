@@ -21,11 +21,14 @@ public class WaveConfigSO : ScriptableObject
     {
         return pathPrefab.GetChild(0); 
     }
+    
 
     public GameObject GetEnemyPrefab(int index)
     {
         return enemyPrefabs[index];
+
     }
+    //
 
     public List<Transform> GetWaypoints()
     {

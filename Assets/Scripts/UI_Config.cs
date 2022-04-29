@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UI_Config : MonoBehaviour
-{
+{   
+    
     private float coin;
     private float wave;
     private float exp;
     private float level;
+
 
     public void GetIncreaseCoin()
     {
@@ -29,6 +31,7 @@ public class UI_Config : MonoBehaviour
     {
         level++;
     }
+
 
 
 }

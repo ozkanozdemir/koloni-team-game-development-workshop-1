@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIButton : MonoBehaviour
 {
     // Start is called before the first frame update
+    HeroSpawner heroSpawner;
     void Start()
     {
         
@@ -15,9 +16,11 @@ public class UIButton : MonoBehaviour
     {
         
     }
-    public void ButtonUp()
+    public void ZenButton()
     {
-        Debug.Log("+");
+        heroSpawner.HeroSpawn(0);
+        Debug.Log("sdasgagsa");
+        
     }
     public void ButtonDown()
     {
