@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_Meneger : MonoBehaviour
 {
-    public Text Wave;
-    public Text Level;
-    public Text Coin;
-    public Text Exp;
-    public Text Upgrade;
-    public Text Sell;
+    public TextMeshProUGUI Wave;
+    public TextMeshProUGUI Level;
+    public TextMeshProUGUI Coin;
+    public TextMeshProUGUI Exp;
+    public TextMeshProUGUI Upgrade;
+    public TextMeshProUGUI Sell;
     public Button _Upgrade;
     public Button _Sell;
     public Button _CharacterZen;
