@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
         }
 
-        // KUR?UNUN YÖNÜ VE HAREKET?
+        // KUR?UNUN Yï¿½Nï¿½ VE HAREKET?
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
