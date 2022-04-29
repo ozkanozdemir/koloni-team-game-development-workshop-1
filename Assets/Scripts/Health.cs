@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] private int maxHealth = 100;
-    UI_atechment uIatechment;
+    
 
     private Slider _slider;
     private bool _isAlive = true;
@@ -43,9 +43,7 @@ public class Health : MonoBehaviour
         {
             // TODO: Ana kontroller'da altın sayısını arttır
             
-            //uIatechment.GetExpIncreases();
-            //uIatechment.GetCoinIncreases();
-            //d��man�n cinsine g�re para kazanma
+            
             
             _isAlive = false;
             Destroy(gameObject);
