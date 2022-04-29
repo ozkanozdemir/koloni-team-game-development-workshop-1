@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
+    private Transform _target;
 
     public float speed = 70f;
 
-    public void Seek(Transform _target)
+    public void Seek(Transform target)
     {
-        target = _target;
+        _target = target;
 
     }
-    void Start()
+    private void Start()
     {
         
     }
 
-
     void Update()
     {
-        if (target == null)
+        if (_target == null)
         {
             Destroy(gameObject);
             return;
-
         }
 
         // KUR?UNUN Y�N� VE HAREKET?
-        Vector3 direction = target.position - transform.position;
+        Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
     }

@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] private int maxHealth = 100;
-    UIatechment uIatechment;
+    UI_atechment uIatechment;
 
     private Slider _slider;
     private bool _isAlive = true;
@@ -44,14 +44,12 @@ public class Health : MonoBehaviour
         
         if (health <= 0)
         {
-//<<<<<<< Updated upstream
             // TODO: Ana kontroller'da altÄ±n sayÄ±sÄ±nÄ± arttÄ±r
             
-//=======
             //uIatechment.GetExpIncreases();
             //uIatechment.GetCoinIncreases();
-            //düþmanýn cinsine göre para kazanma
-//>>>>>>> Stashed changes
+            //dï¿½ï¿½manï¿½n cinsine gï¿½re para kazanma
+            
             _isAlive = false;
             Destroy(gameObject);
         }

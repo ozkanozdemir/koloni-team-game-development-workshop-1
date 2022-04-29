@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
     [SerializeField] private float baseFiringRate = 0.2f;
@@ -89,20 +89,21 @@ public class Shooter : MonoBehaviour
             Vector3 dir = _target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
-            transform.rotation = Quaternion.Euler(0f,rotation.y, 0f);
+            transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
             
-            var instance = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            var instance = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-            Debug.Log("bbb");
+            Debug.Log("transform.position : " + transform.position);
             
             var rb = instance.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 Debug.Log("ccc");
-                rb.velocity = transform.up * projectileSpeed;
+                // rb.velocity = transform.up * projectileSpeed;
             }
 
-            Destroy(instance, projectileLifeTime);
+            Debug.Log("projectileLifeTime : " + projectileLifeTime);
+            // Destroy(instance, projectileLifeTime);
 
             var timeToNextProjectile =
                 Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);

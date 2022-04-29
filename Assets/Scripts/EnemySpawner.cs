@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<WaveConfigSO> waveConfigs;
     [SerializeField] private float timeBetweenWaves = 0f;
     [SerializeField] private bool isLooping;
-    private UIatechment _uIatechment;
+    private UI_atechment _uIatechment;
 
     private WaveConfigSO _currentWave;
  
@@ -15,11 +15,10 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemyWaves());
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
@@ -27,13 +26,16 @@ public class EnemySpawner : MonoBehaviour
     public WaveConfigSO GetCurrentWave()
     {   
         return _currentWave;
-
     }
 
     private IEnumerator SpawnEnemyWaves()
     {
-        _uIatechment=FindObjectOfType<UIatechment>();
-        _uIatechment.GetWaveIncreases();
+        _uIatechment = FindObjectOfType<UI_atechment>();
+        if (_uIatechment != null)
+        {
+            _uIatechment.GetWaveIncreases();   
+        }
+
         //Wawe ba�lamas�
         do
         {
@@ -56,6 +58,4 @@ public class EnemySpawner : MonoBehaviour
         } 
         while (isLooping);
     }
-
-    
 }

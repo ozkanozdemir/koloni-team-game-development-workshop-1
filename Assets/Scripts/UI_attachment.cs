@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIatechment : MonoBehaviour
+public class UI_atechment : MonoBehaviour
 {
     public int Wave=0;
     public int WaveCount=5;
