@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 137079982648052422}
   - component: {fileID: 5073319508954708673}
   - component: {fileID: 188912648236897890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,8 +110,8 @@ GameObject:
   - component: {fileID: 4516996675102720189}
   - component: {fileID: 8116599691023989743}
   - component: {fileID: 1562215072455502836}
-  - component: {fileID: 3969663818126432763}
-  m_Layer: 0
+  - component: {fileID: 1764095503}
+  m_Layer: 6
   m_Name: Hero 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3969663818126432763
+--- !u!114 &1764095503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,11 +207,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7222224574879633292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19eb31aafde39d448cd212037a98a3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a56c6d6803a04f68a34304769c61341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  turnSpeed: 10
-  fireRate: 1
   bulletPrefab: {fileID: 7605056815542463685, guid: 2b845d41db375334c87862a0a264d7e1, type: 3}
-  firePoint: {fileID: 3080287736626995085}
+  projectileSpeed: 20
+  projectileLifeTime: 5
+  baseFiringRate: 1
+  range: 15
+  turnSpeed: 30
+  useAI: 1
+  firingRateVariance: 0.5
+  minimumFiringRate: 0.1
+  isFiring: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,12 +22,10 @@ public class Health : MonoBehaviour
         
         // StartCoroutine(FakeDamage());
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        DamageDealer damageDealer = col.GetComponent<DamageDealer>();
-        
-        Debug.Log(col.name);
+        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         
         if (damageDealer != null)
         {
@@ -39,8 +38,6 @@ public class Health : MonoBehaviour
     {
         health -= value;
         _slider.value = health;
-
-        Debug.Log("health : " + health);
         
         if (health <= 0)
         {

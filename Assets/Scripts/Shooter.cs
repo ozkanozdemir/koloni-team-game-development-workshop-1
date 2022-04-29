@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Shooter : MonoBehaviour
 {
@@ -25,10 +27,7 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (useAI)
-        {
-            isFiring = true;
-        }
+        StartCoroutine(UpdateTarget());
     }
 
     // Update is called once per frame
@@ -39,52 +38,84 @@ public class Shooter : MonoBehaviour
 
     private void Fire()
     {
-        if (isFiring && _firingCoroutine == null)
+        if (_target && _firingCoroutine == null)
         {
-            Debug.Log("aaa");
             _firingCoroutine = StartCoroutine(FireContinuously());
         }
-        else if (!isFiring && _firingCoroutine != null)
+        else if (!_target && _firingCoroutine != null)
         {
             StopCoroutine(_firingCoroutine);
             _firingCoroutine = null;
         }
     }
-    
-    private void UpdateTarget()
+
+    private IEnumerator UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach(GameObject enemy in enemies)
+        while (true)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if(distanceToEnemy < shortestDistance)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            // float shortestDistance = Mathf.Infinity;
+            // GameObject nearestEnemy = null;
+
+            // foreach(GameObject enemy in enemies)
+            // {
+            //     Debug.Log("transform.position : " + transform.position);
+            //     Debug.Log("enemy.transform.position : " + enemy.transform.position);
+            //     float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            //     Debug.Log("distanceToEnemy : " + distanceToEnemy);
+            //     Debug.Log("shortestDistance : " + shortestDistance);
+            //     if(distanceToEnemy < shortestDistance)
+            //     {
+            //         shortestDistance = distanceToEnemy;
+            //         nearestEnemy = enemy;
+            //
+            //     }
+            // }
+            
+            // Debug.Log("range : " + range);
+            // Debug.Log("shortestDistance : " + shortestDistance);
+
+            // if (nearestEnemy != null && shortestDistance <= range)
+            // {
+            //     Debug.Log("nearestEnemy.name : " + nearestEnemy.name);
+            //     _target = nearestEnemy.transform;
+            // }
+            
+            if (enemies.Length > 0)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-
+                _target = enemies[0].transform;
+                
+                if (_firingCoroutine == null)
+                {
+                    _firingCoroutine = StartCoroutine(FireContinuously());
+                }
             }
-        }
+            else
+            {
+                _target = null;
 
-        if (nearestEnemy != null && shortestDistance <= range)
-        {
-            _target = nearestEnemy.transform;
-        }
-        else
-        {
-            _target = null;
-        }
+                if (_firingCoroutine != null)
+                {
+                    StopCoroutine(_firingCoroutine);
+                    _firingCoroutine = null;
+                }
+            }
 
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     private IEnumerator FireContinuously()
     {
-        UpdateTarget();
+        if (_target)
+        {
+            Debug.Log("Hedefin adı : " + _target.name);
+        }
         
         while (_target)
         {
+            Debug.Log("Ateş ediliyor...");
+            
             // HEDEFE KILITLENME (TARGET LOCK ON)
             Vector3 dir = _target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -93,17 +124,13 @@ public class Shooter : MonoBehaviour
             
             var instance = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
-            Debug.Log("transform.position : " + transform.position);
-            
             var rb = instance.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                Debug.Log("ccc");
-                // rb.velocity = transform.up * projectileSpeed;
+                rb.velocity = transform.forward * projectileSpeed;
             }
 
-            Debug.Log("projectileLifeTime : " + projectileLifeTime);
-            // Destroy(instance, projectileLifeTime);
+            Destroy(instance, projectileLifeTime);
 
             var timeToNextProjectile =
                 Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
