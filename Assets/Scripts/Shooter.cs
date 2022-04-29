@@ -80,14 +80,29 @@ public class Shooter : MonoBehaviour
             //     Debug.Log("nearestEnemy.name : " + nearestEnemy.name);
             //     _target = nearestEnemy.transform;
             // }
-            
+
             if (enemies.Length > 0)
             {
-                _target = enemies[0].transform;
-                
-                if (_firingCoroutine == null)
+                float distanceToEnemy = Vector3.Distance(transform.position, enemies[0].transform.position);
+
+                if (distanceToEnemy <= range)
                 {
-                    _firingCoroutine = StartCoroutine(FireContinuously());
+                    _target = enemies[0].transform;
+                
+                    if (_firingCoroutine == null)
+                    {
+                        _firingCoroutine = StartCoroutine(FireContinuously());
+                    }   
+                }
+                else
+                {
+                    _target = null;
+
+                    if (_firingCoroutine != null)
+                    {
+                        StopCoroutine(_firingCoroutine);
+                        _firingCoroutine = null;
+                    }
                 }
             }
             else
@@ -138,5 +153,11 @@ public class Shooter : MonoBehaviour
 
             yield return new WaitForSeconds(timeToNextProjectile);
         }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
