@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _uIatechment=FindObjectOfType<UIatechment>();
         _uIatechment.GetWaveIncreases();
-        //Wawe baþlamasý
+        //Wawe baï¿½lamasï¿½
         do
         {
             foreach (var waveConfig in waveConfigs)
