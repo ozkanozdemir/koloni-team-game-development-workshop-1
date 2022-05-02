@@ -17,9 +17,10 @@ public class UIButton : MonoBehaviour
         
     }
     public void ZenButton()
-    {
+    {   
+        heroSpawner=FindObjectOfType<HeroSpawner>();
         heroSpawner.HeroSpawn(0);
-        Debug.Log("sdasgagsa");
+        
         
     }
     public void ButtonDown()

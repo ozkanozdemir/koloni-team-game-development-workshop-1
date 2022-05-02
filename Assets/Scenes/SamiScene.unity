@@ -1606,7 +1606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5552684918047941126, guid: e33f32f53b60ae04cb27060ee9f2b260, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ZenButton
       objectReference: {fileID: 0}
     - target: {fileID: 5552684918047941126, guid: e33f32f53b60ae04cb27060ee9f2b260, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
