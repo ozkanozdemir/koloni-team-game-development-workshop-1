@@ -8,7 +8,7 @@ ModelImporter:
     second: Landscape_plane|Landscape_planeAction.001
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 2
     materialSearch: 1
     materialLocation: 0
