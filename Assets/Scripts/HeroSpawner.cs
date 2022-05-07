@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HeroSpawner : MonoBehaviour
 {
-    public GameObject[] gameObjects;
     
-    
-    
+
+
+
     void Start()
     {
         
@@ -19,43 +20,11 @@ public class HeroSpawner : MonoBehaviour
        
     }
     
-    public void HeroSpawn(int Hero)
+    public void HeroSpawn()
     {
-        int i=0;
-        if (gameObject == null)
-        {
-            Debug.Log("NullReferens");
-        }
-        while (true)
-        {
-            if (Input.GetMouseButtonUp(0))
-            {
-                i++;
-                Debug.Log(i);
-                if (i==10)
-                {
-                    return;
-                }
-            }
-        }
 
-        
-        
-            //while (true)
-            //{
-            //    int der = Hero;
-            //    Instantiate(gameObjects[Hero], new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z), Quaternion.identity);
-            //}
-        
-        
-        
-        
-            
-        
-
-
-        
-        
+        string clickWhich = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log(clickWhich);
         
     }
     

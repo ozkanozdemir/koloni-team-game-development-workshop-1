@@ -18,19 +18,11 @@ public class UIButton : MonoBehaviour
     {
         
     }
-    public void ZenButton()
+    public void HeroButton()
     {   
-        heroSpawner=FindObjectOfType<HeroSpawner>();
-        if (heroSpawner==null)
-        {
-            Debug.Log("hero Spawner are getting error");
-        }
-        heroSpawner.HeroSpawn(0);
+        
         
         
     }
-    public void ButtonDown()
-    {
-        Debug.Log("-");
-    }
+    
 }
