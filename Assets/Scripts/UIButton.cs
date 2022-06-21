@@ -7,10 +7,10 @@ public class UIButton : MonoBehaviour
 {
     // Start is called before the first frame update
     HeroSpawner heroSpawner;
-
+    public Camera cam;
     void Start()
     {
-        
+        heroSpawner = GetComponent<HeroSpawner>();
     }
 
     // Update is called once per frame
@@ -19,9 +19,16 @@ public class UIButton : MonoBehaviour
         
     }
     public void HeroButton()
-    {   
+    {
         
-        
+        Vector3 mousePos = Input.mousePosition;
+
+        RaycastHit ray;
+
+        //if (Physics.Raycast()
+        //{
+
+        //}
         
     }
     
